@@ -14,6 +14,7 @@ import (
 func TestParams(t *testing.T) {
 	router := httprouter.New()
 	router.GET("/products/:id", func (writer http.ResponseWriter, request *http.Request, params httprouter.Params)  {
+		//Params merupakan tempat untuk menyimpan parameter yg dikirim dari client. Params bukan query parameter, melainkan parameter di URL
 		id := params.ByName("id")
 		text := "Product " + id
 		fmt.Fprint(writer, text)

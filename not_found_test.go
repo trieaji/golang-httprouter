@@ -11,10 +11,17 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+/* 
+1. Selain panic handler, Router juga memiliki not found handler
+2. Not found handler adalah handler yg dieksekusi ketika client mencoba melakukan request URL yg memang tidak terdapat di router
+3. Secara default, jika tidak ada route tidak ditemukan, Router akan melanjutkan request ke http.NotFound, namun kita bisa mengubahnya
+4. Caranya dengan mengubah router.NotFound = http.Handler
+*/
+
 func TestNotFound(t *testing.T) {
 	router := httprouter.New()
 	
-	router.NotFound = http.HandlerFunc(func(writer http.ResponseWriter, request *http.Request){
+	router.NotFound = http.HandlerFunc(func(writer http.ResponseWriter, request *http.Request){//Caranya dengan mengubah router.NotFound = http.Handler
 		fmt.Fprint(writer, "Gak Ketemu")
 	})
 

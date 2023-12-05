@@ -12,7 +12,7 @@ import (
 )
 
 func TestRouter(t *testing.T) {
-	router := httprouter.New()
+	router := httprouter.New()//untuk membuat router, kita bisa menggunakan httprouter.New()
 	router.GET("/", func (writer http.ResponseWriter, request *http.Request, params httprouter.Params)  {
 		fmt.Fprint(writer, "Hello World")
 	})

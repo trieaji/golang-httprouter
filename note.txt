@@ -1,0 +1,2 @@
+HttpRouter merupakan library pengganti HttpHandler di golang
+HttpRouter hanya digunakan untuk routing saja, tidak memiliki fitur apapun selain itu
